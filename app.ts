@@ -62,51 +62,30 @@ const pool = new Pool({
 /**
  * Define the application routes
  *  - Homepage (/)
- *  - Database (/db)
  *  - Route and Book List (/route)
  *  - Adding Books (/add) GET and POST
  *  - React Client API (/api)
  */
 
 // Homepage
-app.get('/', (req: any, res: any) => res.render('pages/index'));
-
-// DB Information - From "Hello World" presentation
-app.get('/db', async (req: any, res: any) => {
+app.get('/', async (req: any, res: any) => {
+  // Booklist retrieval
+  let results = {'results': null};
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM test_table');
-    const results = { 'results': (result) ? result.rows : null};
-    console.log(results);
-    res.render('pages/db', results );
-    client.release();
-  } catch (err: any) {
-    console.error(err);
-    res.send("Error " + err);
-  }
-});
-
-// Route Information
-app.get('/route', async (req: any, res: any) => {
-  try {
-    const client = await pool.connect();
-                                                  // Use table name
     const result = await client.query('SELECT * FROM booklist ORDER BY call_no');
-    const results = { 'results': (result) ? result.rows : null};
+    results = { 'results': (result) ? result.rows : null};
     console.log(results);
-    res.render('pages/route', results );
     client.release();
   } catch (err: any) {
     console.error(err);
     res.send("Error " + err);
   }
+
+  res.render('pages/index', results);
 });
 
-// Adding Books
-app.get('/add', (req: any, res: any) => {
-  let result = null;
-  res.render('pages/add', {result: result});
-});
+// Route for handling /add POST form
 app.post('/add', async (req: any, res: any) => {
   // Submit request to OCLC with ISBN
   let book = {
@@ -134,10 +113,8 @@ app.post('/add', async (req: any, res: any) => {
     } catch (err: any) {
       console.log(err.stack)
     }
-  
-    // Placeholder: Print a message
-    const result = book;
-    res.render('pages/add', {result: result});
+    
+    res.render('pages/index');
   });
 });
 
