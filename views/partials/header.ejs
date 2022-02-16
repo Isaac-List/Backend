@@ -12,16 +12,64 @@
 <meta name="author" content="Isaac List">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- load MUI resources -->
-<link href="//cdn.muicss.com/mui-0.10.2/css/mui.min.css" rel="stylesheet" type="text/css" />
-<script src="//cdn.muicss.com/mui-0.10.2/js/mui.min.js"></script>
+  
+<!-- MUI Resources -->
+<link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+<link href="https://cdn.muicss.com/mui-0.10.3/extra/mui-colors.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.muicss.com/mui-0.10.3/extra/mui-colors.min.css" rel="stylesheet" type="text/css" />
 
-<!-- Links for Materialize.css -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<style>
+  p {
+    font-size: 1.3em;
+  }
 
-<!-- Link for Bulma -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+  #map {
+    width: 240px;
+    height: fit-content;
+    margin: 2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+  }
 
-<!-- Local resources -->
-<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  #results {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #suggestions {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+  }
+
+  .suggestion {
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+    padding: 0.8em 1.2em;
+    background-color: #81C784;
+    margin: 0.3em;
+  }
+
+  #title {
+    margin: 0 0 -8px 0;
+    padding-top: 8px;
+    font-family: Cambria, Georgia, Serif;
+    font-size: 3em;
+  }
+
+  #book1 {
+    color: brown;
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 18px;
+  }
+
+  form {
+    margin-top: 16px;
+  }
+
+  th, td {
+    padding: 1.5em 3em;
+  }
+</style>

@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="index.css">
   <%- include ("../partials/header.ejs") %>
 
 </head>
@@ -14,21 +13,27 @@
 
   <%- include ("../partials/nav.ejs") %>
 
-  <div class="card yellow lighten-4">
-    <div class="card-content">
-      <span class="card-title">Route Finder</span>
-      <p>
-        Hello and welcome to the Route Finder web app! Choose an option below
-        or in the navigation bar above to either add books to your list, or 
-        view the currently selected items and their route.
-      </p>
-    </div>
-    <div class="card-action">
-      <a href="/route">View Books</a>
-      <a href="/add">Add Books</a>
-    </div>
+  <!--  View Switcher   -->
+  <ul class="mui-tabs__bar  mui-tabs__bar--justified">
+    <li class="mui--is-active mui--bg-color-grey-100"><a data-mui-toggle="tab" data-mui-controls="pane-default-1">Welcome</a></li>
+    <li class="mui--bg-color-grey-100"><a data-mui-toggle="tab" data-mui-controls="pane-default-2">Add Items</a></li>
+    <li class="mui--bg-color-grey-100"><a data-mui-toggle="tab" data-mui-controls="pane-default-3">View Items</a></li>
+  </ul>
+
+  <!-- View 1 -->
+  <div class="mui-tabs__pane mui--is-active" id="pane-default-1">
+    <%- include ("components/welcome.ejs") %>
   </div>
-</div>
+
+  <!-- View 2 -->
+  <div class="mui-tabs__pane" id="pane-default-2">
+    <%- include ("components/add.ejs") %>
+  </div>
+
+    <!-- View 3 -->
+  <div class="mui-tabs__pane" id="pane-default-3">
+    <%- include ("components/route.ejs") %>
+  </div>
 
 </body>
 </html>
